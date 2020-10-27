@@ -41,6 +41,6 @@ fi
 
 /usr/bin/envsubst < "/etc/smartd.conf.tmpl" > "/etc/smartd.conf"
 /usr/bin/envsubst < "/etc/ssmtp/ssmtp.conf.tmpl" > "/etc/ssmtp/ssmtp.conf"
-/usr/bin/envsubst < "/etc/ssmtp/revaliases.conf.tmpl" > "/etc/ssmtp/revaliases"
+/usr/bin/envsubst < "/etc/ssmtp/revaliases.tmpl" > "/etc/ssmtp/revaliases"
 
 /usr/sbin/smartd --debug
