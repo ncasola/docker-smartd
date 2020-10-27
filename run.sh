@@ -5,6 +5,11 @@ if [[ ! -v MAIL_TO ]]; then
     exit 1
 fi
 
+if [[ ! -v FROM ]]; then
+    echo "FROM is not set"
+    exit 1
+fi
+
 if [[ ! -v SMTP_ROOT ]]; then
     echo "SMTP_ROOT is not set"
     exit 1
@@ -36,5 +41,6 @@ fi
 
 /usr/bin/envsubst < "/etc/smartd.conf.tmpl" > "/etc/smartd.conf"
 /usr/bin/envsubst < "/etc/ssmtp/ssmtp.conf.tmpl" > "/etc/ssmtp/ssmtp.conf"
+/usr/bin/envsubst < "/etc/ssmtp/revaliases.conf.tmpl" > "/etc/ssmtp/revaliases"
 
 /usr/sbin/smartd --debug
